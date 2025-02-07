@@ -23,7 +23,7 @@ const Footer = () => {
           <h6 className="text-xl font-bold mb-6">Company</h6>
           <ul className="space-y-3">
             <li><a href="#about" className="text-white hover:text-[#ffcc00] transition-colors duration-300">About Us</a></li>
-            <li><Link to="/dashboard" className="text-white hover:text-[#ffcc00] transition-colors duration-300">Dashboard</Link></li>
+            <li><Link to="/dashboard/profile" className="text-white hover:text-[#ffcc00] transition-colors duration-300">Dashboard</Link></li>
             <li><a href="#services" className="text-white hover:text-[#ffcc00] transition-colors duration-300">Services</a></li>
             <li><Link to="/contactus" className="text-white hover:text-[#ffcc00] transition-colors duration-300">Contact Us</Link></li>
           </ul>

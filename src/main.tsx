@@ -14,6 +14,7 @@ import Reports from '../src/pages/dashboard/main/Reports/Reports.tsx'
 import CreateCase from '../src/pages/dashboard/main/Managecases/createcase.tsx'
 import  MyCases from '../src/pages/dashboard/main/Managecases/mycases.tsx'
 import  Cases from '../src/pages/dashboard/main/Managecases/managecases.tsx'
+import CreateAppointmentForm from './pages/dashboard/main/manageAppointment/createappointment.tsx'
 
 // redux and redux-persist
 import { Provider } from 'react-redux';
@@ -113,6 +114,11 @@ const router = createBrowserRouter([
   {
     path: 'mycases',
     element: < MyCases/>,
+    errorElement: <Error />
+  },
+  {
+    path: 'createappointment',
+    element: < CreateAppointmentForm/>,
     errorElement: <Error />
   },
 

@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { vehiclesTableAPI } from '../../../../features/events/vehicleTable';
+import { vehiclesTableAPI } from '../../../../features/events/eventss';
 import { Toaster, toast } from 'sonner';
-import { Tvehicles } from '../../../../features/events/vehicleTable';
+import { Tvehicles } from '../../../../features/events/eventss';
 import { useEffect } from 'react';
 
 interface EditVehicleFormProps {

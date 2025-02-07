@@ -1,3 +1,5 @@
+
+//getting best loading experience with  the animated loader
 import Lottie from 'react-lottie';
 import animationData from '../utils/utils/Animation - 1721057973947.json';
 

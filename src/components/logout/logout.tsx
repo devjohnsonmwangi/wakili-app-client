@@ -8,7 +8,7 @@ const Logout: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate(); // Use navigate for routing
 
-  const handleLogout = () => {
+  const handleLogout = () => {  
     setIsLoggingOut(true);
 
     // Dispatch the logOut action to update the Redux state

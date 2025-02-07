@@ -10,7 +10,13 @@ export type CaseType =
   | "property"
   | "employment"
   | "intellectual_property"
-  | "immigration";
+  | "immigration"
+    "ELC"
+    "childrenCase"
+    "conveyances"
+    "Tribunal";
+
+   
 
 export type CaseStatus = "open" | "in_progress" | "closed" | "on_hold" | "resolved";
 
@@ -26,6 +32,9 @@ export interface CaseDataTypes {
   case_description: string | null;
   case_number: string;
   case_track_number: string;
+  court:string;
+  station:string;
+  parties:string;
   fee: number;
   payment_status: string;
   created_at: string;

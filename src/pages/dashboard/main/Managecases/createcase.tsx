@@ -12,7 +12,12 @@ const validationSchema = yup.object().shape({
   case_status: yup.string().required('Case status is required'),
   case_number: yup.string().required('Case number is required').min(5, 'Case number must be at least 5 characters'),
   case_track_number: yup.string().required('Track number is required').min(5, 'Track number must be at least 5 characters'),
+  court:  yup.string().required('court is required'),
+  station: yup.string().required('Court station  is required'),
+  parties: yup.string().required('parties are  is required').min(5,'parties must be at least 5 characters'),
   fee: yup.number().typeError('Fee must be a number').required('Fee is required').positive('Fee must be a positive number'),
+
+
   payment_status: yup.string().required('Payment status is required'),
   case_description: yup.string().required('Case description is required').min(10, 'Description must be at least 10 characters'),
 });
@@ -35,6 +40,9 @@ const CreateCaseForm: React.FC = () => {
       case_description: '',
       case_number: '',
       case_track_number: '',
+      court:'',
+      station:'',
+      parties:'',
       fee: 0,
       payment_status: 'pending',
     },
@@ -43,11 +51,11 @@ const CreateCaseForm: React.FC = () => {
   const onSubmit = async (formData: any) => {
     try {
       await createCase({ ...formData, user_id: userId }).unwrap();
-      toast.success('🎉 Ticket created successfully!');
+      toast.success('🎉 Case created successfully!');
       reset();
     } catch (error) {
       console.error('Error creating case:', error);
-      toast.error('❌ Failed to create ticket.');
+      toast.error('❌ Failed to create case.');
     }
   };
 
@@ -85,6 +93,11 @@ const CreateCaseForm: React.FC = () => {
               <option value="employment">Employment</option>
               <option value="intellectual_property">Intellectual Property</option>
               <option value="immigration">Immigration</option>
+              <option value="elc">ELC</option>
+              <option value="childrenCase">childrencase</option>
+              <option value="Tribunal">Tribunal</option>
+              <option value="conveyances ">conveyances </option>
+              
             </select>
             {errors.case_type && <p className="text-red-500 text-sm">{errors.case_type.message}</p>}
           </div>
@@ -124,7 +137,42 @@ const CreateCaseForm: React.FC = () => {
             />
             {errors.case_track_number && <p className="text-red-500 text-sm">{errors.case_track_number.message}</p>}
           </div>
+        {/* court */}
+          {/* Case Number */}
+          <div className="flex flex-col">
+            <label htmlFor="court" className="font-medium text-gray-700">Court</label>
+            <input 
+              type="text" 
+              {...register('court')} 
+              className="p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+            />
+            {errors.court && <p className="text-red-500 text-sm">{errors.court.message}</p>}
+          </div>
 
+          {/* station */}
+          
+          {/* Case Number */}
+          <div className="flex flex-col">
+            <label htmlFor="station" className="font-medium text-gray-700">station</label>
+            <input 
+              type="text" 
+              {...register('station')} 
+              className="p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+            />
+            {errors.station && <p className="text-red-500 text-sm">{errors.station.message}</p>}
+          </div>
+          {/* parties */}
+          
+          {/* Case Number */}
+          <div className="flex flex-col">
+            <label htmlFor="parties" className="font-medium text-gray-700">parties</label>
+            <input 
+              type="text" 
+              {...register('parties')} 
+              className="p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+            />
+            {errors.parties && <p className="text-red-500 text-sm">{errors.parties.message}</p>}
+          </div>
           {/* Fee */}
           <div className="flex flex-col">
             <label htmlFor="fee" className="font-medium text-gray-700">Fee</label>
