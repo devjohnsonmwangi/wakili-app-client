@@ -35,6 +35,7 @@ import Account from './pages/dashboard/main/Account.tsx';
  import MyTickets from './pages/dashboard/main/Tickets/MyTickets.tsx';
  import CreateTicket from './pages/dashboard/main/Tickets/CreateTicket.tsx';
  import Logout from './components/logout/logout.tsx'
+ import DocumentUpload  from './pages/dashboard/main/managedoc.tsx/createcasedoc.tsx'
 // import ManageVehicle from './pages/dashboard/main/ManageVehicles/ManageVehicle.tsx';
 // import Reports from './pages/dashboard/main/Reports/Reports.tsx';
 
@@ -121,6 +122,11 @@ const router = createBrowserRouter([
     element: < CreateAppointmentForm/>,
     errorElement: <Error />
   },
+  {
+    path:'casedoc',
+    element: <DocumentUpload/>,
+    errorElement: <Error/>
+  },
 
  
 
@@ -139,18 +145,7 @@ const router = createBrowserRouter([
     element: <Dashboard />,
     errorElement: <Error />,
     children: [
-      // {
-      //   path: 'vehicles',
-      //   element: <Vehicles />
-      // },
-      // {
-      //   path: 'vehicles/booking/:vehicle_id',
-      //   element: <BookingForm />
-      // },
-      // {
-      //   path: 'allbookings',
-      //   element: <AllBookings />
-      // },
+    
       {
         path: 'supporttickets',
         element: <SupportTickets />
@@ -158,6 +153,10 @@ const router = createBrowserRouter([
       {
         path: 'account',
         element: <Account />
+      },
+      {
+        path:'documents',
+        element: <DocumentUpload/>
       },
       // {
       //   path: 'payments',

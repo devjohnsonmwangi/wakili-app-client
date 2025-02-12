@@ -17,43 +17,44 @@ export const caseDocumentAPI = createApi({
   reducerPath: "caseDocumentAPI",
   baseQuery: fetchBaseQuery({ baseUrl: APIDomain }),
   refetchOnReconnect: true,
-  tagTypes: ["CaseDocument"],
+  tagTypes: ["Document"],
   endpoints: (builder) => ({
     // Fetch all case documents
     fetchCaseDocuments: builder.query<CaseDocumentDataTypes[], void>({
-      query: () => "caseDocuments",
-      providesTags: ["CaseDocument"],
+      query: () => "documents",
+      providesTags: ["Document"],
     }),
     // Fetch case document by ID
     getCaseDocumentById: builder.query<CaseDocumentDataTypes, number>({
-      query: (document_id) => `caseDocuments/${document_id}`,
-      providesTags: ["CaseDocument"],
+      query: (document_id) => `documents/${document_id}`,
+      providesTags: ["Document"],
     }),
     // Create a new case document
-    createCaseDocument: builder.mutation<CaseDocumentDataTypes, Partial<CaseDocumentDataTypes>>({
+    createCaseDocument: builder.mutation<CaseDocumentDataTypes, FormData>({
       query: (newDocument) => ({
-        url: "caseDocuments",
+        url: "documents",
         method: "POST",
         body: newDocument,
       }),
-      invalidatesTags: ["CaseDocument"],
+      invalidatesTags: ["Document"],
     }),
+    
     // Update an existing case document
     updateCaseDocument: builder.mutation<CaseDocumentDataTypes, Partial<CaseDocumentDataTypes & { document_id: number }>>({
       query: ({ document_id, ...rest }) => ({
-        url: `caseDocuments/${document_id}`,
+        url: `documents/${document_id}`,
         method: "PUT",
         body: rest,
       }),
-      invalidatesTags: ["CaseDocument"],
+      invalidatesTags: ["Document"],
     }),
     // Delete a case document
     deleteCaseDocument: builder.mutation<{ success: boolean; document_id: number }, number>({
       query: (document_id) => ({
-        url: `caseDocuments/${document_id}`,
+        url: `documents/${document_id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["CaseDocument"],
+      invalidatesTags: ["Document"],
     }),
   }),
 });
