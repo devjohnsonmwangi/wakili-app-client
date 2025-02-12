@@ -1,3 +1,6 @@
+
+//the  following  templetes are  just  sketches  the  can  be  edited to  fit  the  required  format  of  the  judiciary  system  in  question
+
 export interface JudiciaryTemplate {
     id: string;
     name: string;
@@ -5,6 +8,7 @@ export interface JudiciaryTemplate {
     content: string;
   }
   
+
   export const judiciaryTemplates: JudiciaryTemplate[] = [
     {
       id: "affidavit",
@@ -94,3 +98,4 @@ export interface JudiciaryTemplate {
     }
   ];
   
+
